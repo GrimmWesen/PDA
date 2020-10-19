@@ -14,12 +14,25 @@ public class CFG {
     private Set<String> T;
     private Set<String> P;
     private Set<Map<String, List<String>>> P1;
+
+    public String getS() {
+        return S;
+    }
+
     private String S;
 
-    private Set<String> V_s;
-    private Set<String> T_s;
-    private Set<String> P_s;
 
+    public Set<String> getV() {
+        return V;
+    }
+
+    public Set<String> getT() {
+        return T;
+    }
+
+    public Set<String> getP() {
+        return P;
+    }
 
     private String V_re = "[A-Z](_[0-9]*)?(,[A-Z](_[0-9]*)?)*";
     private String T_re = ".*(,.*)*";
@@ -32,10 +45,8 @@ public class CFG {
         P1 = new HashSet<>();
         S = null;
 
-        V_s = new HashSet<>();
-        T_s = new HashSet<>();
-        P_s = new HashSet<>();
     }
+
     public void read(String fileName) throws FileNotFoundException {
         File file = new File(fileName);
         Scanner in = new Scanner(file);
@@ -266,12 +277,12 @@ public class CFG {
         Tjoin.retainAll(T);
         N0 = Vjoin;
 
-        V_s = N0;
-        T_s = Tjoin;
+//        V_s = N0;
+//        T_s = Tjoin;
         V.clear();
         T.clear();
-        V.addAll(V_s);
-        T.addAll(T_s);
+        V.addAll(N0);
+        T.addAll(Tjoin);
 
     }
     /**
@@ -284,13 +295,13 @@ public class CFG {
         for(String p:P){
             String left = p.charAt(0)+"";
             String[] fege = p.substring(3).split("\\|");
-            if(!V_s.contains(left)){
+            if(!V.contains(left)){
                 none.add(p);
             }
             for(String f:fege){
                 for(char c:f.toCharArray()){
                     String ch = c+"";
-                    if(!V_s.contains(ch) && !T_s.contains(ch)){
+                    if(!V.contains(ch) && !T.contains(ch)){
                        none.add(p);
                     }
                 }
@@ -318,28 +329,7 @@ public class CFG {
         return res;
     }
 
-    /**
-     * make A_0BC_1 to A_0  B C_0 separately
-     * @param s
-     * @return
-     */
-    public List<String> splitRight(String s){
-        List<String> res = new ArrayList<>();
-        char[] arr = s.toCharArray();
-        for (int i = 0; i < arr.length-1 ; i++){
-            int t = i;
-            StringBuffer sr = new StringBuffer("");
-            if(arr[i+1] == '_'){
-                i += 2;
-            }
-            sr.append(s.substring(t,i+1));
-            res.add(sr.toString());
-        }
-        if(arr.length>=3 && arr[arr.length-2]!='_'){
-            res.add(arr[arr.length-1]+"");
-        }
-        return res;
-    }
+
 
     /**
      * 移除空产生式分为2种情况：
@@ -486,6 +476,39 @@ public class CFG {
         P.addAll(new_P);
     }
 
+    /**
+     * 再次确定有哪些 V T
+     * @param c
+     */
+
+    public void vertify(CFG c){
+        Set<String> Vset = new HashSet<>();
+        Set<String> Tset = new HashSet<>();
+        for (String p:P){
+            String left = p.charAt(0)+"";
+            String right = p.substring(3);
+            Vset.add(left);
+            for(char ch:right.toCharArray()){
+                if(!(ch>='A'&&ch<='Z')){
+                    Tset.add(ch+"");
+                }
+            }
+        }
+        T.clear();
+        T.addAll(Tset);
+        V.clear();
+        V.addAll(Vset);
+
+//        for (String v:Vset){
+//            System.out.print(v+" ");
+//        }
+//        System.out.println("");
+//        for (String t:Tset){
+//            System.out.print(t+" ");
+//        }
+//        System.out.println(" ");
+    }
+
     public void  printCFG(){
         System.out.println("删完了");
         for (String v:V){
@@ -503,13 +526,13 @@ public class CFG {
 
     public static void main(String[] args) throws FileNotFoundException{
         CFG c = new CFG();
-        c.read("./src/resource/Grammar5.txt");
+        c.read("./src/resource/Grammar2.txt");
         String P_re = "^#+$";
         c.removeEmpty(c);
         c.removeUnitP(c);
         c.reduceCFG(c);
-        c.reduceCFG(c);
         c.printCFG();
+        c.vertify(c);
 
 
 
