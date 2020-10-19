@@ -1,0 +1,11 @@
+#V# 
+S,A,B
+#T#
+a,b,#
+#S#
+S
+#P#
+S -> ASA | aB | b|B
+A -> B
+B -> b | #
+  
