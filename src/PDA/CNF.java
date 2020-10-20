@@ -22,6 +22,21 @@ public class CNF {
     CNF(){
 
     }
+    public Set<String> getP() {
+        return P;
+    }
+
+    public Set<String> getT() {
+        return T;
+    }
+
+    public Set<String> getV() {
+        return V;
+    }
+
+    public String getS() {
+        return S;
+    }
 
     public void toCNF(CFG cfg){
         Set<String> Pset = new HashSet<>();
@@ -86,32 +101,16 @@ public class CNF {
             }
 
         }
-        System.out.println("CNF完了");
-        for (String v:V){
-            StringBuffer sb = new StringBuffer("");
-            for(String p:Pset){
-                String left = p.substring(0,p.indexOf(">")-1);
-                if(left.equals(v)){
-                    sb.append(p.substring(p.indexOf(">")+1));
-                    sb.append("|");
-                }
-            }
-            if(sb.toString().length()>0){
-                System.out.println(v+"->"+sb.toString());
-            }
-        }
-//        for (String p:Pset){
-//            System.out.println(p);
-//        }
-
-
+        P.clear();
+        P.addAll(Pset);
+        updateV(this);
     }
     /**
      * make A_0BC_1 to A_0  B C_0 separately
      * @param s
      * @return
      */
-    public List<String> splitRight(String s){
+    public static List<String> splitRight(String s){
         List<String> res = new ArrayList<>();
         char[] arr = s.toCharArray();
         if(s.length() == 1){
@@ -160,9 +159,33 @@ public class CNF {
         return null;
     }
 
+    public void updateV(CNF cnf){
+        Set<String> newV = new HashSet<>();
+        for (String p:P){
+            newV.add(p.substring(0,p.indexOf(">")-1));
+        }
+        V.clear();
+        V.addAll(newV);
+    }
+
+    public void printCNF(CNF cnf){
+        System.out.println("CNF完了");
+        for (String v:V){
+            StringBuffer sb = new StringBuffer("");
+            for(String p:P){
+                String left = p.substring(0,p.indexOf(">")-1);
+                if(left.equals(v)){
+                    sb.append(p.substring(p.indexOf(">")+1));
+                    sb.append("|");
+                }
+            }
+            System.out.println(v+"->"+sb.toString());
+        }
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         CFG c = new CFG();
-        c.read("./src/resource/Grammar6.txt");
+        c.read("./src/resource/Grammar5.txt");
 
         c.removeEmpty(c);
         c.removeUnitP(c);
@@ -172,6 +195,7 @@ public class CNF {
         System.out.println("_____________________");
         CNF cnf = new CNF(c);
         cnf.toCNF(c);
+        cnf.printCNF(cnf);
 
 
     }

@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d2884d5-28bb-4ea0-8495-32fc830547f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PDA/PDA/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PDA/PDA/CFG.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PDA/PDA/CNF.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PDA/PDA/CNF.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PDA/PDA/GNF.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PDA/PDA/GNF.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PDA/resource/Grammar5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PDA/resource/Grammar5.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PDA/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDA/CFG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PDA/CNF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDA/CNF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PDA/GNF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDA/GNF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resource/Grammar5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/Grammar5.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +43,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.CNF">
+  <component name="RunManager" selected="Application.GNF">
     <configuration name="CFG" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PDA.CFG" />
       <module name="PDA" />
@@ -69,6 +70,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GNF" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PDA.GNF" />
+      <module name="PDA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="PDA.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -82,6 +96,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GNF" />
         <item itemvalue="Application.CNF" />
         <item itemvalue="Application.CFG" />
       </list>
@@ -107,8 +122,18 @@
       <workItem from="1603095189102" duration="1121000" />
       <workItem from="1603096747440" duration="2726000" />
       <workItem from="1603106081958" duration="12524000" />
-      <workItem from="1603118803098" duration="474000" />
+      <workItem from="1603118803098" duration="849000" />
+      <workItem from="1603188093226" duration="571000" />
+      <workItem from="1603189517172" duration="15151000" />
     </task>
+    <task id="LOCAL-00001" summary="10：19 23：00">
+      <created>1603119528692</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603119528692</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,55 +149,63 @@
       </list>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="10：19 23：00" />
+    <option name="LAST_COMMIT_MESSAGE" value="10：19 23：00" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1603108463600">
+    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1603192360855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603108463600" />
-    <state x="558" y="95" key="CommitChangelistDialog2" timestamp="1603096788518">
+    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603192360855" />
+    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1603119528389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="95" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603096788518" />
-    <state width="1867" height="288" key="GridCell.Tab.0.bottom" timestamp="1603119071605">
+    <state x="558" y="24" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603119528389" />
+    <state x="687" y="200" key="FileChooserDialogImpl" timestamp="1603119372083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="288" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603119071605" />
-    <state width="1867" height="288" key="GridCell.Tab.0.center" timestamp="1603119071605">
+    <state x="687" y="200" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603119372083" />
+    <state width="1867" height="245" key="GridCell.Tab.0.bottom" timestamp="1603205425910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="288" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603119071605" />
-    <state width="1867" height="288" key="GridCell.Tab.0.left" timestamp="1603119071605">
+    <state width="1867" height="245" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603205425910" />
+    <state width="1867" height="245" key="GridCell.Tab.0.center" timestamp="1603205425910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="288" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603119071605" />
-    <state width="1867" height="288" key="GridCell.Tab.0.right" timestamp="1603119071605">
+    <state width="1867" height="245" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603205425910" />
+    <state width="1867" height="245" key="GridCell.Tab.0.left" timestamp="1603205425910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="288" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603119071605" />
-    <state width="1869" height="254" key="GridCell.Tab.1.bottom" timestamp="1603118683442">
+    <state width="1867" height="245" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603205425910" />
+    <state width="1867" height="245" key="GridCell.Tab.0.right" timestamp="1603205425910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1869" height="254" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603118683442" />
-    <state width="1869" height="254" key="GridCell.Tab.1.center" timestamp="1603118683442">
+    <state width="1867" height="245" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603205425910" />
+    <state width="1867" height="250" key="GridCell.Tab.1.bottom" timestamp="1603204402965">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1869" height="254" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603118683442" />
-    <state width="1869" height="254" key="GridCell.Tab.1.left" timestamp="1603118683442">
+    <state width="1867" height="250" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603204402965" />
+    <state width="1867" height="250" key="GridCell.Tab.1.center" timestamp="1603204402965">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1869" height="254" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603118683442" />
-    <state width="1869" height="254" key="GridCell.Tab.1.right" timestamp="1603118683442">
+    <state width="1867" height="250" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603204402965" />
+    <state width="1867" height="250" key="GridCell.Tab.1.left" timestamp="1603204402965">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1869" height="254" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603118683442" />
+    <state width="1867" height="250" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603204402965" />
+    <state width="1867" height="250" key="GridCell.Tab.1.right" timestamp="1603204402965">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="250" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603204402965" />
     <state x="461" y="157" key="SettingsEditor" timestamp="1603119275913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="157" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603119275913" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603118843730">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603119601186">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603118843730" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603119601186" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1603109296272">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -181,6 +214,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603113786441" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/PDA/GNF.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

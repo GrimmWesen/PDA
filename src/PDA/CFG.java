@@ -535,15 +535,6 @@ public class CFG {
         c.vertify(c);
 
 
-
-
-
-
-//        for(String s:c.P){
-//            System.out.println(s);
-//        }
-//       c.reduceCFG(c);
-
     }
 
 }
