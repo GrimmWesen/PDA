@@ -1,0 +1,12 @@
+#V# 
+A,B,C
+#T#
+a,b
+#S#
+A
+#P#
+A->BC
+B->CA|b
+C->AB|a
+
+
