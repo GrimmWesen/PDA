@@ -159,9 +159,9 @@ public class CFG {
      * @param cfg
      */
     public void simplify(CFG cfg){
-        reduceCFG(cfg);
         removeEmpty(cfg);
         removeUnitP(cfg);
+        reduceCFG(cfg);
     }
     public void reduceCFG(CFG cfg){
         reduceCFG1(cfg);
@@ -510,7 +510,7 @@ public class CFG {
     }
 
     public void  printCFG(){
-        System.out.println("删完了");
+        System.out.println("简化完了");
         for (String v:V){
             StringBuffer sb = new StringBuffer("");
             for(String p:P){
@@ -521,7 +521,7 @@ public class CFG {
             }
             System.out.println(v+"->"+sb.toString());
         }
-
+        System.out.println("_____________________");
     }
 
     public static void main(String[] args) throws FileNotFoundException{

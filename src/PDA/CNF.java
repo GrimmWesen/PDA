@@ -40,15 +40,15 @@ public class CNF {
 
     public void toCNF(CFG cfg){
         Set<String> Pset = new HashSet<>();
+        Map<String,String> map = new HashMap<>();
         for(String p:P){
             String left = p.substring(0,p.indexOf(">")-1);
-            String right = p.substring(3);
+            String right = p.substring(p.indexOf(">")+1);
             List<String> rightAlph = splitRight(right);
             int rightNum = rightAlph.size();
 
             StringBuffer newP = new StringBuffer(left);
             newP.append("->");
-
 
 //            String notUsed = notUsedV();
 //            V.add(notUsed);
@@ -57,13 +57,24 @@ public class CNF {
                 Pset.add(p);
             }
             else{
+                boolean flag = false;//有没有T
                 String notUsed = notUsedV();
                 V.add(notUsed);
                 for(String single:rightAlph){
+                    String newL = null;
                     if(T.contains(single)){
-                        String newL = newV(notUsed);
-                        V.add(newL);
-                        newP.append(newL);
+                        flag = flag & true;
+                        if(map.containsKey(single)){
+                            newL = map.get(single);
+                            newP.append(newL);
+                        }
+                        else{
+                            newL = newV(notUsed);
+                            notUsed = newL;
+                            V.add(newL);
+                            newP.append(newL);
+                            map.put(single,newL);
+                        }
 
                         StringBuffer sb = new StringBuffer(newL);
                         sb.append("->");
@@ -74,6 +85,8 @@ public class CNF {
                         newP.append(single);
                     }
                 }
+                if(flag) V.remove(notUsed);
+
                 String rightTemp = newP.toString().substring(newP.toString().indexOf(">")+1);
                 if(rightNum == 2){
                     Pset.add(newP.toString());
@@ -105,6 +118,8 @@ public class CNF {
         P.addAll(Pset);
         updateV(this);
     }
+
+
     /**
      * make A_0BC_1 to A_0  B C_0 separately
      * @param s
@@ -152,7 +167,7 @@ public class CNF {
 
     public String notUsedV(){
         for(char i='A';i<='Z';i++){
-            if(!V.contains(i+"")){
+            if(!V.contains(i+"") && !(V.contains(i+"_0"))){
                 return i+"";
             }
         }
@@ -176,11 +191,16 @@ public class CNF {
                 String left = p.substring(0,p.indexOf(">")-1);
                 if(left.equals(v)){
                     sb.append(p.substring(p.indexOf(">")+1));
-                    sb.append("|");
+                    sb.append(" | ");
                 }
             }
             System.out.println(v+"->"+sb.toString());
         }
+        System.out.println("_____________________");
+    }
+
+    public void redeuce(){
+
     }
 
     public static void main(String[] args) throws FileNotFoundException {

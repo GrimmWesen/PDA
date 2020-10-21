@@ -1,0 +1,10 @@
+#V# 
+S,Q,R
+#T#
+a,b,c
+#S#
+S
+#P#
+S->Qc | c
+Q->Rb | b
+R->Sa | a
