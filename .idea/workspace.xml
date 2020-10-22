@@ -2,20 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d2884d5-28bb-4ea0-8495-32fc830547f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/resource/Grammar9.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PDA/PDA/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PDA/PDA/CFG.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PDA/PDA/CNF.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PDA/PDA/CNF.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PDA/PDA/GNF.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PDA/PDA/GNF.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PDA/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDA/CFG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PDA/CNF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDA/CNF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PDA/GNF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDA/GNF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/Grammar8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/Grammar8.txt" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PDA/CNF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="e#443#444#0" expanded="true" />
+                <element signature="e#467#468#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
+                <element signature="e#524#525#0" expanded="true" />
+                <element signature="e#557#558#0" expanded="true" />
+                <element signature="e#581#582#0" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
+                <element signature="e#633#634#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PDA/GNF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="411" lean-forward="true" selection-start-line="411" selection-end-line="411" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resource/Grammar9.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resource/Grammar7.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resource/Grammar8.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -27,7 +74,40 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/PDA/GNF.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-19" />
+    <option name="y" value="-19" />
+    <option name="width" value="1415" />
+    <option name="height" value="1014" />
+  </component>
   <component name="ProjectId" id="1j5b9Dc2OG0NXdG4pOYFimyCBdc" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PDA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PDA" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,12 +116,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603030933960" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603332963135" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.GNF">
     <configuration name="CFG" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -83,19 +175,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GNF" />
@@ -104,7 +183,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -124,44 +203,54 @@
       <workItem from="1603095189102" duration="1121000" />
       <workItem from="1603096747440" duration="2726000" />
       <workItem from="1603106081958" duration="12524000" />
-      <workItem from="1603118803098" duration="849000" />
-      <workItem from="1603188093226" duration="571000" />
-      <workItem from="1603189517172" duration="15237000" />
-      <workItem from="1603263043838" duration="28961000" />
+      <workItem from="1603118803098" duration="474000" />
+      <workItem from="1603154878823" duration="34000" />
+      <workItem from="1603155436540" duration="604000" />
+      <workItem from="1603293976854" duration="2573000" />
+      <workItem from="1603325178060" duration="5107000" />
+      <workItem from="1603334029891" duration="7037000" />
     </task>
-    <task id="LOCAL-00001" summary="10：19 23：00">
-      <created>1603119528692</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1603119528692</updated>
-    </task>
-    <task id="LOCAL-00002" summary="10：19 23：00">
-      <created>1603206174278</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1603206174278</updated>
-    </task>
-    <task id="LOCAL-00003" summary="10：19 23：00">
-      <created>1603263415215</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1603263415215</updated>
-    </task>
-    <task id="LOCAL-00004" summary="10：19 23：00">
-      <created>1603271386751</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1603271386751</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="15355000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1563" height="845" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2039867" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31276298" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997195" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32959327" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -173,67 +262,55 @@
       </list>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="10：19 23：00" />
-    <option name="LAST_COMMIT_MESSAGE" value="10：19 23：00" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1603192360855">
+    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1603108463600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603192360855" />
-    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1603271386432">
+    <state x="718" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603108463600" />
+    <state x="558" y="95" key="CommitChangelistDialog2" timestamp="1603096788518">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="24" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603271386432" />
-    <state x="687" y="200" key="FileChooserDialogImpl" timestamp="1603119372083">
+    <state x="558" y="95" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603096788518" />
+    <state width="1867" height="288" key="GridCell.Tab.0.bottom" timestamp="1603119071605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="687" y="200" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603119372083" />
-    <state width="1867" height="291" key="GridCell.Tab.0.bottom" timestamp="1603288792994">
+    <state width="1867" height="288" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603119071605" />
+    <state width="1867" height="288" key="GridCell.Tab.0.center" timestamp="1603119071605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603288792994" />
-    <state width="1867" height="291" key="GridCell.Tab.0.center" timestamp="1603288792993">
+    <state width="1867" height="288" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603119071605" />
+    <state width="1867" height="288" key="GridCell.Tab.0.left" timestamp="1603119071605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="291" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603288792993" />
-    <state width="1867" height="291" key="GridCell.Tab.0.left" timestamp="1603288792993">
+    <state width="1867" height="288" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603119071605" />
+    <state width="1867" height="288" key="GridCell.Tab.0.right" timestamp="1603119071605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="291" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603288792993" />
-    <state width="1867" height="291" key="GridCell.Tab.0.right" timestamp="1603288792994">
+    <state width="1867" height="288" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603119071605" />
+    <state width="1869" height="254" key="GridCell.Tab.1.bottom" timestamp="1603118683442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="291" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603288792994" />
-    <state width="1867" height="221" key="GridCell.Tab.1.bottom" timestamp="1603287665832">
+    <state width="1869" height="254" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603118683442" />
+    <state width="1869" height="254" key="GridCell.Tab.1.center" timestamp="1603118683442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="221" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603287665832" />
-    <state width="1867" height="221" key="GridCell.Tab.1.center" timestamp="1603287665832">
+    <state width="1869" height="254" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603118683442" />
+    <state width="1869" height="254" key="GridCell.Tab.1.left" timestamp="1603118683442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="221" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603287665832" />
-    <state width="1867" height="221" key="GridCell.Tab.1.left" timestamp="1603287665832">
+    <state width="1869" height="254" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603118683442" />
+    <state width="1869" height="254" key="GridCell.Tab.1.right" timestamp="1603118683442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="221" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603287665832" />
-    <state width="1867" height="221" key="GridCell.Tab.1.right" timestamp="1603287665832">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="221" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603287665832" />
+    <state width="1869" height="254" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603118683442" />
     <state x="461" y="157" key="SettingsEditor" timestamp="1603119275913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="157" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603119275913" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603263420347">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603118843730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603263420347" />
-    <state x="399" y="193" width="1121" height="749" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1603285510924">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="399" y="193" width="1121" height="749" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1603285510924" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603118843730" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1603109296272">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -243,15 +320,69 @@
     </state>
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603113786441" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.StackOverflowError" package="java.lang" />
-          <option name="timeStamp" value="10" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar6.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar3.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar4.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar5.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PDA/CNF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_231/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="2176" column="18" selection-start-line="2176" selection-start-column="18" selection-end-line="2176" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar7.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar8.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource/Grammar9.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PDA/GNF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="411" lean-forward="true" selection-start-line="411" selection-end-line="411" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

@@ -14,6 +14,7 @@ public class GNF {
     Set<String> V = null;
     List<String> V_order = null;
     String S = null;
+    Map<String,List<String>> map = null;
 
     GNF(CNF cnf){
         this.cnf = cnf;
@@ -33,81 +34,13 @@ public class GNF {
         }
         Collections.sort(V_order,Collections.reverseOrder());
         V_order.add(this.S);
-
     }
 
-    public void D(GNF gnf){
-        Map<String,List<String>> map = new HashMap<>();
-        for(String v:V_order){
-            List<String> list = new ArrayList<>();
-            for (String p:P){
-                if(p.substring(0,p.indexOf(">")-1).equals(v)){
-                    list.add(p.substring(p.indexOf(">")+1));
-                }
-            }
-            map.put(v,list);
-        }
-        int length = V_order.size();
-        List<String> V_oreder_copy = new ArrayList<>();
-        V_oreder_copy.addAll(V_order);
-        for(int i=0;i<length;i++){
-            String left = V_oreder_copy.get(i);
-            List<String> right1 = map.get(left);
-            List<String> newR = new ArrayList<>();
-            List<String> delR = new ArrayList<>();
-            // C-> ?
-            for (int j = length-1; j > i; j--) {
-                String left2 = V_oreder_copy.get(j);
-                List<String> list = map.get(left);
-                List<String> newList = null;
-                boolean flag = false;
-                for (String p:list){
-                    List<String> rightList = CNF.splitRight(p);
-                    String rightOne = rightList.get(0);
-                    if(left2.equals(rightOne)){
-                        flag = true;
-                        newList = removeLeft(left,list);
-                        break;
-                    }
-                }
-                if (flag){
-                    map.put(left,newList);
-                    list.clear();
-                    list.addAll(newList);
-                }
-            }
-
-            for (String s:right1){
-                List<String> rightList = CNF.splitRight(s);
-                String rightOne = rightList.get(0);
-                for (int j = length-1; j > i; j--){
-                    String r1 = V_oreder_copy.get(j);
-                    if(rightOne.equals(r1)){
-                        delR.add(s);
-                        for(String s2:map.get(r1)){
-                            String temp = s.replaceFirst(rightOne,s2);
-                            newR.add(temp);
-                        }
-
-                    }
-                }
-            }
-            right1.addAll(newR);
-            right1.removeAll(delR);
-        }
-
-        for (String s:V_oreder_copy){
-            System.out.print(s+"->");
-            for(String s2:map.get(s)){
-                System.out.print(s2+" | ");
-            }
-            System.out.println("");
-        }
-    }
-    public List<String> removeLeft(String v,List<String> origin){
+    public void removeLeft(String v,List<String> origin){
         List<String> newSet = new ArrayList<>();
         List<String> vP_without = new ArrayList<>();
         List<String> vP_left = new ArrayList<>();
+        List<String> newv_P = new ArrayList<>();
 
         for(String right:origin){
             List<String> rightList = CNF.splitRight(right);
@@ -129,13 +62,133 @@ public class GNF {
         }
         for (String s:vP_left){
             String noV = s.replaceFirst(v,"");//去除右部的第一个V,Axxx--xxx
-            String newp = newV+"->"+noV;
-            String newp2 = newV+"->"+noV+newV;
-            P.add(newp);
-            P.add(newp2);
+            String newp = noV;
+            String newp2 = noV+newV;
+            newv_P.add(newp);
+            newv_P.add(newp2);
         }
-        return newSet;
+        map.put(newV,newv_P);
+        map.put(v,newSet);
     }
+
+    public void daihuan2(GNF gnf){
+        map = new HashMap<>();
+        for(String v:V_order){
+            List<String> list = new ArrayList<>();
+            for (String p:P){
+                if(p.substring(0,p.indexOf(">")-1).equals(v)){
+                    list.add(p.substring(p.indexOf(">")+1));
+                }
+            }
+            map.put(v,list);
+        }
+        List<String> V_order_cp = new ArrayList<>();
+        V_order_cp.addAll(V_order);
+        Collections.reverse(V_order_cp);
+        if(hasLeftRe(V_order_cp.get(0),map.get(V_order_cp.get(0)))){ //存在左递归
+            removeLeft(V_order_cp.get(0),map.get(V_order_cp.get(0)));
+        }
+        for(int i =1;i<V_order_cp.size();i++){
+
+            for (int j = 0;j<i;j++){
+                List<String> ilist = map.get(V_order_cp.get(i));
+                List<String> ilist_c = new ArrayList<>();
+                ilist_c.addAll(ilist);
+                for(String p:ilist){ //遍历 右部集合
+                    List<String> rightList = CNF.splitRight(p);
+                    String rightOne = rightList.get(0);
+                    if(V_order_cp.get(j).equals(rightOne)){
+                        ilist_c.remove(p);
+                        List<String> jlist = map.get(V_order_cp.get(j));
+                        for (String t:jlist){
+                            String newp = p.replaceFirst(rightOne,t); //替换
+                            ilist_c.add(newp);
+                        }
+                        map.put(V_order_cp.get(i),ilist_c);
+                    }
+                }
+            }
+
+            if(hasLeftRe(V_order_cp.get(i),map.get(V_order_cp.get(i)))){
+                removeLeft(V_order_cp.get(i),map.get(V_order_cp.get(i)));
+            }
+        }
+
+    }
+
+    public boolean hasLeftRe(String v,List<String> list){
+        boolean res = false;
+        for (String p:list){
+            List<String> rightList = CNF.splitRight(p);
+            String rightOne = rightList.get(0);
+            if(v.equals(rightOne)){
+                res = true;
+                break;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 回代 消除非终结符打头
+     * @param gnf
+     */
+    public void Back(GNF gnf){
+        int S_index = V_order.indexOf(this.S);
+        for(int i =0;i<V_order.size();i++){
+            String v = V_order.get(i);
+            List<Integer> indexList = FirstisT(v);
+            int len = indexList.size();
+            if(len == 0){
+                continue;
+            }
+            List<String> right = map.get(v); //Ac | c| b
+            List<String> right_copy = new ArrayList<>(); //copy
+            right_copy.addAll(right);
+
+            for(Integer in:indexList){
+                String p = right.get(in.intValue()); //Ac
+                List<String> rightList = CNF.splitRight(p); //Ac---A  c
+                String rightOne = rightList.get(0); //A
+                List<String> join = map.get(rightOne);//A->cC ...cC
+
+                right_copy.remove(p); //删除 Ac
+                for (String s:join){
+                    String newP = p.replaceFirst(rightOne,s);
+                    right_copy.add(newP);
+                }
+            }
+            map.put(v,right_copy); //更新 右部产生式列表
+        }
+//        if(S_index == V_order.size()-1) return;
+//        for(int i =S_index+1;i<V_order.size();i++){
+//            List<String> right = map.get(V_order.get(i)); //A_0 ->BC|CA...BC,CA
+//            for(String p:right){
+//                List<String> rightList = CNF.splitRight(p); //Ac---A  c
+//                String one
+//                if()
+//            }
+//        }
+    }
+
+    /**
+     * 找出 第一个是非终结符的 下标集合。
+     * @param v
+     * @return
+     */
+    public List<Integer> FirstisT(String v){
+        List<Integer> res = new ArrayList<>();
+        List<String> list = map.get(v);
+        for(String p:list){
+            List<String> rightList = CNF.splitRight(p);
+            String rightOne = rightList.get(0);
+            if(V_order.contains(rightOne)){
+                res.add(list.indexOf(p));
+            }
+        }
+        return res;
+    }
+
 
     /**
      * 代换
@@ -288,9 +341,7 @@ public class GNF {
                     }
                 }
             }
-            else{
 
-            }
         }
     }
     public String notUsedV(){
@@ -315,15 +366,11 @@ public class GNF {
     public void printGNF(GNF gnf){
         System.out.println("GNF完了");
         for (String v:V_order){
-            StringBuffer sb = new StringBuffer("");
-            for(String p:P){
-                String left = p.substring(0,p.indexOf(">")-1);
-                if(left.equals(v)){
-                    sb.append(p.substring(p.indexOf(">")+1));
-                    sb.append("|");
-                }
+            System.out.print(v+" -> ");
+            for(String s:map.get(v)){
+                System.out.print(s+" | ");
             }
-            System.out.println(v+"->"+sb.toString());
+            System.out.println("");
         }
     }
 
@@ -335,7 +382,7 @@ public class GNF {
 
     public static void main(String[] args) throws FileNotFoundException {
         CFG c = new CFG();
-        c.read("./src/resource/Grammar8.txt");
+        c.read("./src/resource/Grammar9.txt");
         c.simplify(c);
         c.printCFG();
         c.vertify(c);
@@ -347,26 +394,22 @@ public class GNF {
         GNF gnf = new GNF(cnf);
 
         gnf.orederP(gnf);
-        gnf.printGNF(gnf);
+        System.out.println("------------排序完-----------------");
+//        gnf.printGNF(gnf);
         System.out.println("------------------------------------");
-        gnf.D(gnf);
+        gnf.daihuan2(gnf);
+        System.out.println("------------消除和排序完-----------------");
+        gnf.printGNF(gnf);
+        gnf.Back(gnf);
+        System.out.println("------------GNF完成-----------------");
+        gnf.printGNF(gnf);
+//        gnf.D(gnf);
 
         //先消除一次左递归
-//        gnf.removeLeft(gnf);
-//        gnf.printGNF(gnf);
+//        ll
 
-//        System.out.println("--------------进行代换----------------- ");
-//        gnf.daihuan(gnf);
-//        gnf.printGNF(gnf);
-//        System.out.println("--------------接下来消除左递归-----------------");
-//        gnf.removeLeft(gnf);
-//        gnf.printGNF(gnf);
-//
-//        gnf.backIN(gnf);
-//        gnf.printGNF(gnf);
-//        for(String v:gnf.V_order){
-//            System.out.print(v+" ");
-//        }
+        System.out.println("--------------进行代换----------------- ");
+
 
 
     }
