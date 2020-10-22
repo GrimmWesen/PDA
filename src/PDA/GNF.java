@@ -15,6 +15,8 @@ public class GNF {
     List<String> V_order = null;
     String S = null;
     Map<String,List<String>> map = null;
+    String bottom = "wdnmd";
+    boolean accept = false;
 
     GNF(CNF cnf){
         this.cnf = cnf;
@@ -36,6 +38,11 @@ public class GNF {
         V_order.add(this.S);
     }
 
+    /**
+     * 新的 去除左递归 子函数
+     * @param v
+     * @param origin
+     */
     public void removeLeft(String v,List<String> origin){
         List<String> newSet = new ArrayList<>();
         List<String> vP_without = new ArrayList<>();
@@ -71,7 +78,13 @@ public class GNF {
         map.put(v,newSet);
     }
 
+    /**
+     * 新的去除左递归 和排序
+     * @param gnf
+     */
+
     public void daihuan2(GNF gnf){
+        //初始化 map 方便后续操作
         map = new HashMap<>();
         for(String v:V_order){
             List<String> list = new ArrayList<>();
@@ -116,6 +129,12 @@ public class GNF {
 
     }
 
+    /**
+     * 新的 判断该非终结符 是否还有 左递归的右部
+     * @param v
+     * @param list
+     * @return
+     */
     public boolean hasLeftRe(String v,List<String> list){
         boolean res = false;
         for (String p:list){
@@ -130,6 +149,7 @@ public class GNF {
     }
 
     /**
+     * 新的
      * 回代 消除非终结符打头
      * @param gnf
      */
@@ -160,15 +180,51 @@ public class GNF {
             }
             map.put(v,right_copy); //更新 右部产生式列表
         }
-//        if(S_index == V_order.size()-1) return;
-//        for(int i =S_index+1;i<V_order.size();i++){
-//            List<String> right = map.get(V_order.get(i)); //A_0 ->BC|CA...BC,CA
-//            for(String p:right){
-//                List<String> rightList = CNF.splitRight(p); //Ac---A  c
-//                String one
-//                if()
-//            }
-//        }
+    }
+
+
+    public void analysis(GNF gnf,String target){
+        Stack<String> stack = new Stack<>();
+        stack.push(this.bottom);
+        stack.push(this.S);
+        anaRe(target,stack);
+        if(!accept){
+            System.out.println("Not Accept");
+        }
+    }
+    public void anaRe(String target,Stack<String> stack){
+        if(stack.lastElement().equals(this.bottom)){
+            if(target.equals("")){
+                this.accept = true;
+                System.out.println("Accept!!!");
+                System.exit(0);
+            }
+            else{
+                return;
+            }
+        }
+        else{
+            if(target.length() == 0) return;
+        }
+
+        String top = stack.pop(); //获取栈顶并删除
+        List<String> list = map.get(top);
+        for(String p:list){
+            List<String> rightList = CNF.splitRight(p);
+            String first = rightList.get(0);
+//            System.out.println(target+" "+stack.size());
+            if(first.equals(target.charAt(0)+"")){
+                Stack<String> stack_cp = new Stack<>();
+                stack_cp.addAll(stack);
+                for (int i = rightList.size()-1; i>=1; i--) {
+                    stack_cp.push(rightList.get(i));
+                }
+//                String str_cp = target.substring(1);
+                String str_cp = new String(target);
+                str_cp = str_cp.substring(1);
+                anaRe(str_cp,stack_cp);
+            }
+        }
     }
 
     /**
@@ -382,7 +438,7 @@ public class GNF {
 
     public static void main(String[] args) throws FileNotFoundException {
         CFG c = new CFG();
-        c.read("./src/resource/Grammar9.txt");
+        c.read("./src/resource/Grammar8.txt");
         c.simplify(c);
         c.printCFG();
         c.vertify(c);
@@ -400,15 +456,20 @@ public class GNF {
         gnf.daihuan2(gnf);
         System.out.println("------------消除和排序完-----------------");
         gnf.printGNF(gnf);
+        System.out.println("--------------进行代换----------------- ");
         gnf.Back(gnf);
         System.out.println("------------GNF完成-----------------");
         gnf.printGNF(gnf);
+        System.out.println("--------------进行字符判断----------------- ");
+        String target = "(a)+(b)a";
+        gnf.analysis(gnf,target);
+
+
+
 //        gnf.D(gnf);
 
         //先消除一次左递归
 //        ll
-
-        System.out.println("--------------进行代换----------------- ");
 
 
 
