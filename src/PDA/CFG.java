@@ -163,10 +163,14 @@ public class CFG {
         removeUnitP(cfg);
         reduceCFG(cfg);
     }
-    public void reduceCFG(CFG cfg){
+    public void  reduceCFG(CFG cfg){
         reduceCFG1(cfg);
         reduceCFG2(cfg);
         reduceCFG3(cfg);
+    }
+
+    public static void outReduce(CFG cfg){
+        
     }
 
     /**

@@ -199,9 +199,9 @@ public class CNF {
         System.out.println("_____________________");
     }
 
-    public void redeuce(){
+   public void mainCNF(CFG cfg){
 
-    }
+   }
 
     public static void main(String[] args) throws FileNotFoundException {
         CFG c = new CFG();

@@ -180,6 +180,7 @@ public class GNF {
             }
             map.put(v,right_copy); //更新 右部产生式列表
         }
+        removeuseless(gnf);//删除无用
     }
 
 
@@ -245,169 +246,33 @@ public class GNF {
         return res;
     }
 
+    public void removeuseless(GNF gnf){
+        Map<String,Boolean> isuse = new HashMap<>();
 
-    /**
-     * 代换
-     * @param
-     */
-    public void daihuan( GNF gnf){
-//        Set<String> Pcopy = new HashSet<>();
-//        Pcopy.addAll(P);
-        Set<String> Pset = new HashSet<>();
-        Set<String> Pdele = new HashSet<>();
-        Pset.addAll(P);
-        for (String p:P){
-            String left = p.substring(0,p.indexOf(">")-1);
-            List<String> rightList = CNF.splitRight(p.substring(p.indexOf(">")+1));
-            String rightFirst = rightList.get(0);
-
-            if(!V_order.contains(rightFirst)){
+        for (String v:V_order){
+            for(String p:map.get(v)){
+                List<String> rightList = CNF.splitRight(p);
+                for(String s:rightList){
+                    if(V_order.contains(s)){
+                        isuse.put(s,true);
+                    }
+                }
+            }
+        }
+        List<String> V_order_cp = new ArrayList<>();
+        V_order_cp.addAll(V_order);
+        for(String v:V_order_cp){
+            if(v.equals(this.S)){
                 continue;
             }
-            int left_index = V_order.indexOf(left);
-            int right_index = V_order.indexOf(rightFirst);
-
-            if(left_index<right_index){
-                Pdele.add(p);
-                List<String> pAdd = new ArrayList<>();
-                daihuanReg(p,pAdd);
-                Pset.addAll(pAdd);
-            }
-        }
-        P.addAll(Pset);
-        P.removeAll(Pdele);
-
-    }
-    public String daihuanReg(String p,List<String> pList){
-        if(p.contains("BBB")){
-            System.out.println("WARN!!!!!");
-            System.out.println(p);
-            System.exit(1);
-        }
-        System.out.println(p);
-        String left = p.substring(0,p.indexOf(">")-1);
-        List<String> rightList = CNF.splitRight(p.substring(p.indexOf(">")+1));
-        String right = rightList.get(0);
-        if((!V_order.contains(right)) || V_order.indexOf(left) >= V_order.indexOf(right) ){
-            pList.add(p);
-            return p;
-        }
-        else {
-            for(String p1:P){
-                if(p1.substring(0,p1.indexOf(">")-1).equals(right)){
-                    String p1Right = p1.substring(p1.indexOf(">")+1);
-                    String p2 = p.replaceFirst(right,p1Right);
-                    daihuanReg(p2,pList);
-                }
-            }
-        }
-
-        return p;
-    }
-    public void removeLeft(GNF gnf){
-        Set<String> P_copy = new HashSet<>();
-        P_copy.addAll(P);
-
-        List<String> V_order_C = new ArrayList<>();
-        V_order_C.addAll(V_order);
-        for(String v:V_order_C){//按CBAS 最低先
-            for (String p:P_copy){
-                String pleft = p.substring(0,p.indexOf(">")-1);
-                List<String> rightList = CNF.splitRight(p.substring(p.indexOf(">")+1));
-                String pRight1 = rightList.get(0);
-                if(v.equals(pleft) && pleft.equals(pRight1)){
-                    removeLeft1(gnf,v);
-                    break;
-                }
+            if(isuse.get(v) == null){
+                V_order.remove(v);
             }
         }
     }
-    public void removeLeft1(GNF gnf,String v){
-        List<String> vP_without = new ArrayList<>();
-        List<String> vP_left = new ArrayList<>();
-        Set<String> newSet = new HashSet<>();
-        Set<String> needDele = new HashSet<>();
 
-        for (String p:P){
-            String pRight = p.substring(p.indexOf(">")+1);
-            List<String> rightList = CNF.splitRight(pRight);
-            String pRight1 = rightList.get(0);
-            if(p.substring(0,p.indexOf(">")-1).equals(v)){
-                needDele.add(p);
-                if(v.equals(pRight1)){
-                    vP_left.add(pRight);
-                }
-                else{
-                    vP_without.add(pRight);
-                }
-            }
-        }
-        String newV = newV(v);
-        V_order.add(newV); //确保新的 V在最末尾
-        for (String s:vP_without){
-            String newp = v+"->"+s;
-            String newp2 = v+"->"+s+newV;
 
-            newSet.add(newp);
-            newSet.add(newp2);
-        }
-        for (String s:vP_left){
-            String noV = s.replaceFirst(v,"");//去除右部的第一个V,Axxx--xxx
-            String newp = newV+"->"+noV;
-            String newp2 = newV+"->"+noV+newV;
-            newSet.add(newp);
-            newSet.add(newp2);
-        }
-        P.removeAll(needDele);
-        P.addAll(newSet);
-    }
 
-    /**
-     * 回代
-     * @param gnf
-     */
-    public void  backIN(GNF gnf){
-        int Sindex = V_order.indexOf(this.S);
-        int length = V_order.size();
-        for (int i = 0; i < length-1; i++) {
-            if(i<=Sindex){
-                String vpre = V_order.get(i);
-                String vnext = V_order.get(i+1);
-                Set<String> vpreSet = new HashSet<>();
-                Set<String> vnextSet = new HashSet<>();
-
-                for (String p:P){
-                    if(p.substring(0,p.indexOf(">")-1).equals(vpre)){
-                        vpreSet.add(p);
-                    }
-                    else if(p.substring(0,p.indexOf(">")-1).equals(vnext)){
-                        vnextSet.add(p);
-                    }
-                }
-                for(String p:vnextSet){
-                    String pRight = p.substring(p.indexOf(">")+1);
-                    List<String> rightList = CNF.splitRight(pRight);
-                    if(rightList.contains(vpre)){
-                        P.remove(p);
-                        for(String q:vpreSet){
-                            String qRight = q.substring(q.indexOf(">")+1);
-                            String son = p.replace(vpre,qRight);
-                            P.add(son);
-                        }
-                    }
-                }
-            }
-
-        }
-    }
-    public String notUsedV(){
-        for(char i='F';i<='Z';i++){
-            if(!V.contains(i+"") && !(V.contains(i+"_0"))){
-                return i+"";
-            }
-        }
-        return null;
-    }
     public String newV(String v){
         StringBuffer sb = new StringBuffer(v);
         if(v.length() == 1){
@@ -430,38 +295,34 @@ public class GNF {
         }
     }
 
-    public void toGNF(GNF gnf){
-        daihuan(gnf);
-        removeLeft(gnf);
-        backIN(gnf);
-    }
 
     public static void main(String[] args) throws FileNotFoundException {
         CFG c = new CFG();
-        c.read("./src/resource/Grammar8.txt");
+        c.read("./src/resource/Grammar10.txt");
         c.simplify(c);
-        c.printCFG();
-        c.vertify(c);
         System.out.println("_____________________");
         CNF cnf = new CNF(c);
         cnf.toCNF(c);
         cnf.printCNF(cnf);
         System.out.println("-------------------------------");
-        GNF gnf = new GNF(cnf);
 
+
+        GNF gnf = new GNF(cnf);
         gnf.orederP(gnf);
-        System.out.println("------------排序完-----------------");
+        System.out.println("--------------排序完-----------------");
 //        gnf.printGNF(gnf);
         System.out.println("------------------------------------");
         gnf.daihuan2(gnf);
-        System.out.println("------------消除和排序完-----------------");
+        System.out.println("-----------消除左递归和排序完-----------");
         gnf.printGNF(gnf);
         System.out.println("--------------进行代换----------------- ");
         gnf.Back(gnf);
-        System.out.println("------------GNF完成-----------------");
+        System.out.println("---------------GNF完成----------------");
         gnf.printGNF(gnf);
-        System.out.println("--------------进行字符判断----------------- ");
-        String target = "(a)+(b)a";
+        System.out.println("--------------进行字符判断--------------");
+        System.out.print("Please input the String to analysis:");
+        Scanner scanner = new Scanner(System.in);
+        String target = scanner.next();
         gnf.analysis(gnf,target);
 
 
