@@ -84,8 +84,11 @@ public class CFG {
 
     public void Start(CFG cfg){
         removeEmpty(cfg);
+        vertify(cfg);
         removeUnitP(cfg);
+        vertify(cfg);
         reduceCFG(cfg);
+        vertify(cfg);
     }
     public void valid(){
         boolean allValid = true;
@@ -349,10 +352,9 @@ public class CFG {
 
         removeEmptyRE(cfg,0);
         deleteEmpty(cfg);
-
-        if(w.contains(S)){
-            P.add(S+"->#");
-        }
+//        if(w.contains(S)){
+//            P.add(S+"->#");
+//        }
 
     }
     //递归求解
@@ -373,7 +375,7 @@ public class CFG {
                 if(W.contains(ch+"")){
                     mark[i] =1;
                     StringBuffer p_copy = new StringBuffer(p);
-                    p_copy.replace(i+3,i+4,"#");
+                    p_copy.replace(i+3,i+4,"");
                     pir.add(p_copy.toString());
                 }
             }
@@ -391,6 +393,9 @@ public class CFG {
         while (pl.hasNext()){
             String p = pl.next();
             String right = p.substring(3);
+            if(right.length() == 0){
+                pl.remove();
+            }
             String re = "^#+$";
             if(Pattern.matches(re,right)){
                 pl.remove();

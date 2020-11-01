@@ -285,7 +285,7 @@ public class GNF {
         }
     }
     public void printGNF(GNF gnf){
-        System.out.println("GNF完了");
+        System.out.println("GNF中");
         for (String v:V_order){
             System.out.print(v+" -> ");
             for(String s:map.get(v)){
@@ -298,8 +298,9 @@ public class GNF {
 
     public static void main(String[] args) throws FileNotFoundException {
         CFG c = new CFG();
-        c.read("./src/resource/Grammar10.txt");
-        c.simplify(c);
+        c.read("./src/resource/Grammar3.txt");
+        c.Start(c);
+        c.printCFG();
         System.out.println("_____________________");
         CNF cnf = new CNF(c);
         cnf.toCNF(c);
