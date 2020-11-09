@@ -14,14 +14,11 @@ public class CFG {
     private Set<String> T;
     private Set<String> P;
     private Set<Map<String, List<String>>> P1;
+    private String S;
 
     public String getS() {
         return S;
     }
-
-    private String S;
-
-
     public Set<String> getV() {
         return V;
     }
@@ -80,6 +77,7 @@ public class CFG {
             }
         }
         changeP2();
+        valid();
     }
 
     public void Start(CFG cfg){
@@ -115,6 +113,9 @@ public class CFG {
         System.out.println("#产生式 合法性检测！");
         if(allValid){
             System.out.println("所有输入合法！接下来开始了");
+        }
+        if(!allValid){
+            System.exit(2);
         }
     }
 

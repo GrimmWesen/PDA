@@ -5,7 +5,7 @@ a,b,#
 #S#
 S
 #P#
-S -> ASA | aB | b|B
+S -> ASA | aB | b
 A -> B
 B -> b | #
   

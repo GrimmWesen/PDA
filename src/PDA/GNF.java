@@ -298,7 +298,7 @@ public class GNF {
 
     public static void main(String[] args) throws FileNotFoundException {
         CFG c = new CFG();
-        c.read("./src/resource/Grammar3.txt");
+        c.read("./src/resource/Grammar9.txt");
         c.Start(c);
         c.printCFG();
         System.out.println("_____________________");

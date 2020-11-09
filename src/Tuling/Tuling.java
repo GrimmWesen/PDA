@@ -1,5 +1,7 @@
 package Tuling;
 
+import java.util.Scanner;
+
 public class Tuling {
     public String build_Str(int x,int y){
         String res = "";
@@ -270,9 +272,20 @@ public class Tuling {
 
     public static void main(String[] args) {
         Tuling tl = new Tuling();
-        String line = tl.build_Str(5,2);
+        System.out.println("欢迎使用图灵机的幂指数运算x的y次方！");
+        System.out.println("请输入x 和 y，用逗号分隔===");
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.next();
+        String[] ch = str.split(",");
+        int x = Integer.parseInt(ch[0]);
+        int y = Integer.parseInt(ch[1]);
+        String line = tl.build_Str(x,y);
+        System.out.println("初始纸条如下：");
+        System.out.println(line);
         String l1 = tl.Exp(line);
+        System.out.println("最终纸条如下：");
         System.out.println(l1);
+        System.out.print("x^y = ");
         System.out.println(tl.getRes(l1));
     }
 
