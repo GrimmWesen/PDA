@@ -15,6 +15,7 @@ public class CFG {
     private Set<String> P;
     private Set<Map<String, List<String>>> P1;
     private String S;
+    public boolean empty = false;
 
     public String getS() {
         return S;
@@ -353,9 +354,9 @@ public class CFG {
 
         removeEmptyRE(cfg,0);
         deleteEmpty(cfg);
-//        if(w.contains(S)){
-//            P.add(S+"->#");
-//        }
+        if(w.contains(S)){
+            this.empty = true;
+        }
 
     }
     //递归求解

@@ -17,6 +17,7 @@ public class GNF {
     Map<String,List<String>> map = null;
     String bottom = "wdnmd";
     boolean accept = false;
+    boolean empty;
 
     GNF(CNF cnf){
         this.cnf = cnf;
@@ -24,6 +25,7 @@ public class GNF {
         this.T = cnf.getT();
         this.V = cnf.getV();
         this.S = cnf.getS();
+        this.empty = cnf.empty;
     }
 
     public void orederP(GNF gnf){
@@ -185,6 +187,10 @@ public class GNF {
 
 
     public void analysis(GNF gnf,String target){
+        if(empty && target.equals("#")){
+            System.out.println("Accept");
+            System.exit(0);
+        }
         Stack<String> stack = new Stack<>();
         stack.push(this.bottom);
         stack.push(this.S);
@@ -298,7 +304,7 @@ public class GNF {
 
     public static void main(String[] args) throws FileNotFoundException {
         CFG c = new CFG();
-        c.read("./src/resource/Grammar9.txt");
+        c.read("./src/resource/Grammar9#.txt");
         c.Start(c);
         c.printCFG();
         System.out.println("_____________________");

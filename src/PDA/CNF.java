@@ -11,6 +11,7 @@ public class CNF {
     Set<String> T = null;
     Set<String> V = null;
     String S = null;
+    public boolean empty ;
 
     CNF(CFG cfg){
         this.cfg = cfg;
@@ -18,6 +19,7 @@ public class CNF {
         this.T = cfg.getT();
         this.V = cfg.getV();
         this.S = cfg.getS();
+        this.empty = cfg.empty;
     }
     CNF(){
 

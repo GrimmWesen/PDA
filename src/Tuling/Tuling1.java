@@ -2,7 +2,7 @@ package Tuling;
 
 import java.util.Scanner;
 
-public class Tuling {
+public class Tuling1 {
     public String build_Str(int x,int y){
         String res = "";
         StringBuffer sb = new StringBuffer(res);
@@ -22,7 +22,7 @@ public class Tuling {
     }
     public String Exp(String line) {
         StringBuffer sb = new StringBuffer(line);
-        
+
         int index = 0;
         int state = 0;
         String temp = new String(sb);
@@ -49,7 +49,7 @@ public class Tuling {
                     break;
                 case 1:
                     if (sb.charAt(index) == '0') {
-                        state = 2;
+                        state = 100;
                         index++;
                     } else if (sb.charAt(index) == '1') {
                         index++;
@@ -255,6 +255,25 @@ public class Tuling {
                         state = 17;
                     }
                     break;
+                case 100:
+                    if (sb.charAt(index) == '0'){
+                        state = 101;
+                        index++;
+                    }
+                    else{
+                        state = 2;
+                    }
+                    break;
+                case 101:
+                    if (sb.charAt(index) == '1'){
+                        sb.setCharAt(index,'0');
+                        state = 17;
+                    }
+                    else{
+                        state = 17;
+                    }
+                    break;
+
                 default:
                     break;
             }
@@ -277,7 +296,7 @@ public class Tuling {
     }
 
     public static void main(String[] args) {
-        Tuling tl = new Tuling();
+        Tuling1 tl = new Tuling1();
         System.out.println("欢迎使用图灵机的幂指数运算x的y次方！");
         System.out.println("请输入x 和 y，用逗号分隔===");
         Scanner scanner = new Scanner(System.in);
@@ -300,4 +319,5 @@ public class Tuling {
     }
 
 }
+
 
